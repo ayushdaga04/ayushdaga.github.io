@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayush Daga — Portfolio</title>
+  <meta name="description" content="Portfolio of Ayush Daga — projects, experience, research, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --card: #111827;
+      --muted: #9ca3af;
+      --text: #e5e7eb;
+      --brand: #6ee7b7; /* emerald-300 */
+      --brand-strong: #34d399; /* emerald-400 */
+      --ring: rgba(110,231,183,0.35);
+      --link: #93c5fd; /* blue-300 */
+    }
+    :root[data-theme="light"]{
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --muted: #475569;
+      --text: #0f172a;
+      --brand: #059669; /* emerald-600 */
+      --brand-strong: #047857; /* emerald-700 */
+      --ring: rgba(16,185,129,0.25);
+      --link: #2563eb;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial; color:var(--text); background:radial-gradient(80rem 60rem at 20% -10%, rgba(52,211,153,0.08), transparent 60%),
+      radial-gradient(70rem 50rem at 120% 10%, rgba(96,165,250,0.08), transparent 60%), var(--bg);
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px);
+      background:linear-gradient(to bottom, rgba(11,15,23,.8), rgba(11,15,23,.4));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    header[data-theme="light"]{background:linear-gradient(to bottom, rgba(248,250,252,.9), rgba(248,250,252,.6));}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0}
+    .nav-left{display:flex; align-items:center; gap:14px}
+    .logo{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+    .logo .dot{width:10px; height:10px; border-radius:999px; background:var(--brand)}
+    .nav-links{display:flex; gap:14px; flex-wrap:wrap}
+    .nav-links a{padding:8px 10px; border-radius:10px; font-weight:500; color:var(--text); opacity:.85}
+    .nav-links a.active,.nav-links a:hover{background:rgba(110,231,183,0.12); outline:1px solid rgba(110,231,183,0.25); text-decoration:none}
+    .right-actions{display:flex; align-items:center; gap:8px}
+    .btn{display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.12); background:transparent; color:var(--text); padding:8px 12px; border-radius:12px; cursor:pointer}
+    .btn:hover{border-color:var(--brand-strong); box-shadow:0 0 0 4px var(--ring)}
+    .btn.primary{background:linear-gradient(180deg, var(--brand), var(--brand-strong)); color:#fff; border-color:transparent}
+    .btn.primary:hover{filter:brightness(.98); box-shadow:0 0 0 5px var(--ring)}
+    .mobile-toggle{display:none}
+
+    @media (max-width: 860px){
+      .nav-links{display:none}
+      .mobile-toggle{display:inline-flex}
+      .mobile-menu{display:none; padding:8px 0 14px}
+      .mobile-menu.open{display:grid; gap:8px}
+      .mobile-menu a{padding:10px 12px; border-radius:10px; background:rgba(110,231,183,0.08); border:1px solid rgba(110,231,183,0.18); color:var(--text)}
+    }
+
+    /* Hero */
+    .hero{padding:80px 0 60px}
+    .headline{font-size:clamp(28px, 6vw, 48px); line-height:1.08; font-weight:800; letter-spacing:-.02em}
+    .sub{color:var(--muted); margin-top:10px; font-size:clamp(14px, 2.2vw, 18px)}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; color:#0b0f17; background:linear-gradient(180deg, var(--brand), var(--brand-strong)); font-weight:700; font-size:12px; letter-spacing:.4px}
+    .hero-grid{margin-top:28px; display:grid; grid-template-columns:2fr 1fr; gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px}
+    .muted{color:var(--muted)}
+    .code{font-family:'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size:13px; background:rgba(0,0,0,.3); padding:12px; border-radius:12px; overflow:auto}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-title{font-size:24px; font-weight:800; margin-bottom:18px}
+
+    /* Skills */
+    .tags{display:flex; flex-wrap:wrap; gap:10px}
+    .tag{padding:7px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); font-weight:600; font-size:13px}
+
+    /* Projects */
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px}
+    @media (max-width: 1000px){ .grid{grid-template-columns:repeat(2, 1fr)} }
+    @media (max-width: 640px){ .grid{grid-template-columns:1fr} }
+    .project{position:relative; overflow:hidden}
+    .project h3{margin:10px 0 6px}
+    .badge{display:inline-flex; padding:4px 8px; gap:6px; align-items:center; border-radius:999px; background:rgba(110,231,183,0.12); border:1px solid rgba(110,231,183,0.25); font-size:12px; font-weight:700; color:var(--text)}
+
+    /* Timeline */
+    .timeline{display:grid; gap:16px}
+    .tl-item{display:grid; grid-template-columns: 140px 1fr; gap:14px; align-items:start}
+    .tl-item time{color:var(--muted); font-weight:700}
+    .tl-item .place{font-weight:700}
+    @media (max-width:700px){
+      .tl-item{grid-template-columns:1fr}
+    }
+
+    /* Footer */
+    footer{padding:32px 0 60px; color:var(--muted); text-align:center}
+    .inline-links{display:flex; justify-content:center; gap:14px; flex-wrap:wrap}
+
+    /* Utilities */
+    .row{display:flex; gap:10px; flex-wrap:wrap}
+    .mt-1{margin-top:6px}.mt-2{margin-top:12px}.mt-3{margin-top:18px}.mt-4{margin-top:24px}
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="nav-left">
+        <span class="logo" aria-label="Site logo"><span class="dot"></span> Ayush</span>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#home" class="active">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Tech</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#certs">Certifications</a>
+          <a href="#research">Research</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="right-actions">
+        <button id="themeBtn" class="btn" aria-label="Toggle theme">🌙 Theme</button>
+        <a class="btn primary" href="resume.pdf" download>⬇️ Resume</a>
+        <button class="btn mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+      </div>
+    </div>
+    <div class="container">
+      <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Tech</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#certs">Certifications</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="container hero">
+    <span class="pill">OPEN TO ROLES — Data / Analytics / Biz + Events</span>
+    <h1 class="headline">Hi, I'm Ayush Daga. I build data products and tell clear stories with numbers.</h1>
+    <p class="sub">MS in Data Analytics Engineering @ George Mason University. Mix of <b>SQL/Python/R</b>, <b>Dashboards (Superset/Tableau)</b>, and <b>real‑world projects</b> in supply chain, wildfires, and pricing. Also love <b>event ops & marketing</b>.</p>
+    <div class="hero-grid">
+      <section class="card">
+        <h2 class="section-title">Snapshot</h2>
+        <ul>
+          <li class="mt-1">⭐ 4.0/4.0 in AIT‑580; hands‑on AWS RDS + EC2</li>
+          <li>📊 Supply Chain ARV Pricing — forecasting & dashboards</li>
+          <li>🔥 Wildfire Risk (Databricks + Spark MLlib) — 91% accuracy</li>
+          <li>🧩 Car Price Modeling (R tidyverse) — feature engineering + EDA</li>
+        </ul>
+        <div class="mt-2 row">
+          <a class="btn" href="https://github.com/ayushdaga" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </section>
+      <aside class="card">
+        <h2 class="section-title">Now</h2>
+        <p class="muted">Exploring data roles that blend analytics with business/event ops. Building a clean portfolio of 3–5 case‑study projects.</p>
+        <div class="mt-2 code" aria-label="Now status in code">
+<pre><code>// focus areas
+const focus = ["analytics", "dashboards", "forecasting", "ops"];
+const stack = { db: ["Postgres", "MySQL", "RDS"], viz: ["Superset", "Tableau"], ml: ["sklearn", "Spark MLlib"] };
+</code></pre>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <section id="about" class="container">
+    <h2 class="section-title">About</h2>
+    <p>I'm a data analyst who enjoys <b>clarity</b> — tight SQL, tidy visualizations, and concise narratives. I’ve also led <b>event operations</b> and <b>marketing</b>, which means I think about stakeholder needs, logistics, and outcomes. I like shipping work that’s easy to use and easy to trust.</p>
+  </section>
+
+  <section id="skills" class="container">
+    <h2 class="section-title">Tech</h2>
+    <div class="tags">
+      <span class="tag">SQL (Postgres/MySQL)</span>
+      <span class="tag">Python (Pandas/NumPy)</span>
+      <span class="tag">R (tidyverse)</span>
+      <span class="tag">Spark MLlib / Databricks</span>
+      <span class="tag">Apache Superset</span>
+      <span class="tag">Tableau</span>
+      <span class="tag">AWS (EC2, RDS, S3)</span>
+      <span class="tag">Git/GitHub</span>
+      <span class="tag">HTML/CSS/JS</span>
+      <span class="tag">Canva / Adobe Suite</span>
+    </div>
+  </section>
+
+  <section id="projects" class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="grid">
+      <article class="card project">
+        <span class="badge">Supply Chain • ARV Pricing</span>
+        <h3>ARV Shipment Pricing & Forecasting</h3>
+        <p class="muted">Cleaned 200k+ rows, modeled price trends, and built a Superset dashboard for stakeholders. Forecasted quarterly spend; flagged outliers with rules + IQR.</p>
+        <div class="row mt-2">
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Case Study</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Code</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Live Dashboard</a>
+        </div>
+      </article>
+      <article class="card project">
+        <span class="badge">ML • Risk</span>
+        <h3>Wildfire Risk Prediction</h3>
+        <p class="muted">PySpark pipeline on Databricks with class‑imbalance handling (SMOTE‑style), feature engineering, and 91% accuracy. Visualized risk maps.</p>
+        <div class="row mt-2">
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Case Study</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Notebook</a>
+        </div>
+      </article>
+      <article class="card project">
+        <span class="badge">R • Regression</span>
+        <h3>Car Price Modeling</h3>
+        <p class="muted">EDA + feature selection in R; compared linear models vs. regularized regressions; presented findings with tidy, reproducible scripts.</p>
+        <div class="row mt-2">
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Write‑up</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience" class="container">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      <div class="tl-item card">
+        <time>2024–2025</time>
+        <div>
+          <div class="place">Data Projects (GMU & Freelance)</div>
+          <div class="muted">Led analytics projects; delivered dashboards to non‑technical stakeholders; mentored peers; improved data QA and refresh cadence.</div>
+        </div>
+      </div>
+      <div class="tl-item card">
+        <time>2023–2024</time>
+        <div>
+          <div class="place">Event Ops & Marketing (E‑Cell & GMU)</div>
+          <div class="muted">Coordinated large events (E‑Summit, Embark, 8th Mile). Vendor mgmt, scheduling, and on‑site logistics; designed collateral; handled AV.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="container">
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+      <div class="tl-item card">
+        <time>2024–2026</time>
+        <div>
+          <div class="place">George Mason University — MS, Data Analytics Engineering</div>
+          <div class="muted">Focus: data engineering, ML, and visualization (AIT‑580, STAT‑515, OR‑531, etc.).</div>
+        </div>
+      </div>
+      <div class="tl-item card">
+        <time>2018–2022</time>
+        <div>
+          <div class="place">RV College of Engineering — BE, Computer Science</div>
+          <div class="muted">Leadership in Entrepreneurship Cell; projects in vision (OpenCV Air Canvas) and analytics.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs" class="container">
+    <h2 class="section-title">Certifications</h2>
+    <ul class="card">
+      <li>Google Data Analytics (Coursera) — <span class="muted">2024</span></li>
+      <li>AWS Cloud Practitioner (in‑progress) — <span class="muted">2025</span></li>
+    </ul>
+  </section>
+
+  <section id="research" class="container">
+    <h2 class="section-title">Research & Writing</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>DIKW for Weather Forecasting</h3>
+        <p class="muted">Explained data→information→knowledge→wisdom using weather pipelines; compared with healthcare examples.</p>
+        <a class="btn mt-2" href="#" target="_blank" rel="noreferrer">Read</a>
+      </article>
+      <article class="card">
+        <h3>Supply Chain Pricing Paper</h3>
+        <p class="muted">Exploratory analysis on ARV shipments; modeled regional pricing variance and shipping lead‑time effects.</p>
+        <a class="btn mt-2" href="#" target="_blank" rel="noreferrer">Draft</a>
+      </article>
+      <article class="card">
+        <h3>Databricks vs. NIST Big Data</h3>
+        <p class="muted">Compared architectural approaches; mapped components to SP1500‑1 reference.</p>
+        <a class="btn mt-2" href="#" target="_blank" rel="noreferrer">Notes</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <h2 class="section-title">Contact</h2>
+    <div class="card">
+      <p>Email: <a href="mailto:ayush@example.com">ayush@example.com</a> · GitHub: <a href="https://github.com/ayushdaga" target="_blank" rel="noreferrer">@ayushdaga</a> · LinkedIn: <a href="https://www.linkedin.com/in/" target="_blank" rel="noreferrer">/in/your‑handle</a></p>
+      <form class="mt-2" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="sr-only">
+          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+        <div class="row">
+          <input required name="name" placeholder="Your name" style="flex:1; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:var(--card); color:var(--text)" />
+          <input required type="email" name="email" placeholder="Email" style="flex:1; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:var(--card); color:var(--text)" />
+        </div>
+        <textarea required name="message" placeholder="Tell me about your project…" rows="5" style="width:100%; margin-top:10px; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:var(--card); color:var(--text)"></textarea>
+        <button class="btn primary mt-2" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="inline-links">
+        <a href="#home">Back to top ↑</a>
+        <span>·</span>
+        <a href="/sitemap.xml">Sitemap</a>
+        <span>·</span>
+        <span>© <span id="year"></span> Ayush Daga</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle + persist
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if(saved){ root.setAttribute('data-theme', saved); document.querySelector('header').setAttribute('data-theme', saved); }
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const next = (root.getAttribute('data-theme') === 'light') ? '' : 'light';
+      if(next){ root.setAttribute('data-theme', next); document.querySelector('header').setAttribute('data-theme', next); }
+      else { root.removeAttribute('data-theme'); document.querySelector('header').removeAttribute('data-theme'); }
+      localStorage.setItem('theme', next);
+    });
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', (!expanded).toString());
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // Scroll‑spy active nav link
+    const links = Array.from(document.querySelectorAll('.nav-links a'));
+    const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+    const activate = (id) => {
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if(entry.isIntersecting) activate(entry.target.id); });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+    sections.forEach(sec => io.observe(sec));
+
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

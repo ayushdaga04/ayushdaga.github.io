@@ -1,80 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayush Daga — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Optional: Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0e6f6c6.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <!-- Top Bar -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#">Adams<span>.</span></a>
+      <nav class="menu">
+        <a href="#home" class="active">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#testimonials">Testimonial</a>
+        <a href="#about">About</a>
+      </nav>
+      <div class="right-actions">
+        <a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:you@example.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Hi, I'm Bansi Mehta</h1>
-    <p>Data Analytics • Marketing Strategy • Visualization</p>
+  <main id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <p class="eyebrow">I’m</p>
+        <h1 class="display">Ayush Daga</h1>
+        <p class="sub">
+          A freelancer who provides services for digital programming and design content needs
+          for all businesses—with more than <strong>5+ years</strong> of experience.
+        </p>
+        <div class="service-card">
+          <div>
+            <p class="label">Services</p>
+            <h3 class="service-title">Let’s build quality products in programming and design.</h3>
+            <a class="inline-link" href="#services">show more <i class="fa-solid fa-arrow-right-long"></i></a>
+          </div>
+          <div class="socials">
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <!-- Replace with your image: put your file in /assets/profile.jpg or update src -->
+        <img src="assets/profile.jpg" alt="Portrait of Ayush Daga" class="hero-photo"/>
+      </div>
+    </div>
+
+    <!-- Brand row -->
+    <div class="container brand-row">
+      <div class="brand-pill"><img src="assets/meta.svg" alt="">Meta</div>
+      <div class="brand-pill"><img src="assets/google.svg" alt="">Google</div>
+      <div class="brand-pill"><img src="assets/linkedin.svg" alt="">LinkedIn</div>
+      <div class="brand-pill"><img src="assets/slack.svg" alt="">Slack</div>
+    </div>
+  </main>
+
+  <!-- What I can do -->
+  <section id="services" class="container two-col">
+    <div class="left">
+      <h2 class="section-title">What Can I Do For Your Needs</h2>
+      <p class="muted">
+        It’s easier to entrust the work to the experts because they provide the best results with reliable quality.
+      </p>
+      <div class="stats">
+        <div><h3>250+</h3><p>Project Completed</p></div>
+        <div><h3>100+</h3><p>Community Network</p></div>
+        <div><h3>30+</h3><p>Contract Remote</p></div>
+        <div><h3>10+</h3><p>Years Experience</p></div>
+      </div>
+    </div>
+
+    <div class="right list-cards">
+      <a class="list-card" href="#portfolio">
+        <img src="assets/uiux.jpg" alt="">
+        <div>
+          <h4>UI/UX Design</h4>
+          <p>117 Project</p>
+        </div>
+        <i class="fa-solid fa-arrow-right-long"></i>
+      </a>
+      <a class="list-card" href="#portfolio">
+        <img src="assets/frontend.jpg" alt="">
+        <div>
+          <h4>Front-End Develop</h4>
+          <p>84 Project</p>
+        </div>
+        <i class="fa-solid fa-arrow-right-long"></i>
+      </a>
+      <a class="list-card" href="#portfolio">
+        <img src="assets/mobile.jpg" alt="">
+        <div>
+          <h4>Mobile App Develop</h4>
+          <p>32 Project</p>
+        </div>
+        <i class="fa-solid fa-arrow-right-long"></i>
+      </a>
+    </div>
   </section>
 
-  <!-- Wrapper -->
-  <div class="wrap">
+  <!-- Service tiles -->
+  <section class="container card-grid" aria-label="Services grid">
+    <article class="tile">
+      <div class="icon"><i class="fa-solid fa-object-group"></i></div>
+      <h3>UI/UX Design</h3>
+      <p>Create a beautiful and useful UI for applications and the web.</p>
+      <a class="inline-link" href="#portfolio">show more <i class="fa-solid fa-arrow-right-long"></i></a>
+    </article>
 
-    <!-- Projects -->
-    <section class="card" id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li>Customer segmentation & personalization dashboards</li>
-        <li>Reporting automation (SQL/Python) to cut manual work</li>
-        <li>Market trend & competitor analysis dashboards</li>
-        <li>Executive visualization for decision-making</li>
-      </ul>
-    </section>
+    <article class="tile">
+      <div class="icon"><i class="fa-solid fa-code"></i></div>
+      <h3>Web Programming</h3>
+      <p>Build fast, accessible sites with best practices and SEO.</p>
+      <a class="inline-link" href="#portfolio">show more <i class="fa-solid fa-arrow-right-long"></i></a>
+    </article>
 
-    <!-- Skills -->
-    <section class="card" id="skills">
-      <h2>Skills</h2>
-      <div class="skill">
-        <div class="label">Data Analysis</div>
-        <div class="bar"><div class="fill w90"></div></div>
-      </div>
-      <div class="skill">
-        <div class="label">Market Research & Visualization</div>
-        <div class="bar"><div class="fill w88"></div></div>
-      </div>
-      <div class="skill">
-        <div class="label">SQL, Python</div>
-        <div class="bar"><div class="fill w86"></div></div>
-      </div>
-      <div class="skill">
-        <div class="label">Power BI & Excel</div>
-        <div class="bar"><div class="fill w92"></div></div>
-      </div>
-    </section>
+    <article class="tile">
+      <div class="icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <h3>Mobile Development</h3>
+      <p>Design and deliver cross-platform mobile apps for business.</p>
+      <a class="inline-link" href="#portfolio">show more <i class="fa-solid fa-arrow-right-long"></i></a>
+    </article>
+  </section>
 
-    <!-- Blog -->
-    <section class="card" id="blog">
-      <h2>Blog</h2>
-      <p>Insights on analytics, marketing trends, and clear data storytelling.</p>
-    </section>
+  <!-- Placeholder sections so nav links work -->
+  <section id="portfolio" class="container placeholder">
+    <h2 class="section-title">Portfolio</h2>
+    <p class="muted">Add your projects here (cards, images, links, case studies).</p>
+  </section>
 
-    <!-- Contact -->
-    <section class="card" id="contact">
-      <h2>Contact</h2>
-      <p>Connect for projects or collaboration.</p>
-      <p><a class="btn" href="mailto:bansi.email@example.com">Email Me</a></p>
-      <p><a class="btn" href="https://linkedin.com/in/bansimehta13" target="_blank" rel="noopener">LinkedIn</a></p>
-    </section>
-  </div>
+  <section id="testimonials" class="container placeholder">
+    <h2 class="section-title">Testimonial</h2>
+    <p class="muted">Add quotes from clients, teammates, or professors.</p>
+  </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Bansi Mehta. All Rights Reserved.</p>
+  <section id="about" class="container placeholder">
+    <h2 class="section-title">About</h2>
+    <p class="muted">Short bio, skills, resume link, and contact info.</p>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span> Ayush Daga — All rights reserved.</p>
+    </div>
   </footer>
+
+  <script>
+    // year + mobile menu
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const burger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      menu.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
